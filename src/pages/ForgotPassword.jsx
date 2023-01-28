@@ -1,6 +1,6 @@
-import '../styles/login.scss'
+import '../styles/loginAndRegistration.scss'
 
-import { Dialog } from '../components/Dialog'
+import { Dialog } from '../components/Dialog/Dialog'
 
 // Importação de dependências
 import { useState } from 'react'
@@ -23,46 +23,42 @@ export function ForgotPassword() {
         onSubmit: (values) => {
             console.log(values)
             setIsSuccess(true)
-            return(isSuccess)
+            return (isSuccess)
         }
     })
 
     return (
-        <div id="page-login">
-            <div id="main">
-            
-                <div id="title">
-                    <h2>Recuperar senha</h2>
+        <div id="login-page">
+            <main>
+                <header>
+                    <h1>Recuperar senha</h1>
                     <p>Informe seu email cadastrado e receba as instruções de como redefinir sua senha.</p>
-                </div>
-
+                </header>
                 <form onSubmit={formik.handleSubmit} noValidate>
-                    <div>
+                    <div className="inputField">
+                        <label htmlFor="email">Email</label>
                         <input
-                            formik={formik}
                             type="email"
+                            name="email"
+                            placeholder="usuario@email.com"
                             value={formik.values.email}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            name="email"
-                            placeholder='Email *'
-                            />
+                            formik={formik}
+                        />
                         {formik.errors.email && formik.touched.email && (
-                            <span className='error-message'>{formik.errors.email}</span>
-                            )}
+                            <span className="errorFeedback">{formik.errors.email}</span>
+                        )}
                     </div>
-
                     <button
-                        type='submit'
-                        >
+                        type="submit"
+                    >
                         Enviar por email
-                    </button> 
-                    <p><a href="/login">Voltar para login</a></p>
+                    </button>
+                    <a href="/login">Voltar para login</a>
                 </form>
-
-            </div>
-
-            {isSuccess ? <Dialog text='Email enviado' /> : null}
+            </main>
+            {isSuccess ? <Dialog text="Email enviado" /> : null}
         </div>
     )
 }

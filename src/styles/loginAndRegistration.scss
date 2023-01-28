@@ -1,0 +1,154 @@
+#login-page,
+#registration-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    main {
+        display: block;
+        width: 450px;
+        padding: 60px;
+        margin: 120px 0;
+        border-radius: 6px;
+
+        background-color: rgba($color: #4D4D4D, $alpha: 0.18);
+        box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.25);
+
+        header {
+            margin-bottom: 30px;
+
+            h1 {
+                font: 400 2em "Inter", sans-serif;
+            }
+
+            p {
+                font: 400 0.8em/1.3 "Inter", sans-serif;
+                color: #BFBFBF;
+
+                margin-top: 6px;
+            }
+        }
+
+        form {
+            display: grid;
+            gap: 18px;
+
+            .inputField {
+                label {
+                    display: block;
+                    font-weight: 600;
+                    margin-bottom: 6px;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 12px 18px;
+                    border-radius: 6px;
+
+                    border: 1px solid #FFF;
+                    background-color: transparent;
+                    color: #FFF;
+
+                    &::placeholder {
+                        font: 600 1em, "Inter", sans-serif;
+                        color: #808080;
+                    }
+
+                    &:focus {
+                        outline: 2px solid #4BD8F9;
+                    }
+                }
+            }
+
+            .inputAdornmentEnd {
+                display: flex;
+                align-items: center;
+
+                position: relative;
+
+                input {
+                    padding-right: 40px;
+                }
+
+                span {
+                    cursor: pointer;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    position: absolute;
+                    right: 18px;
+
+                    height: 100%;
+                }
+            }
+
+            #loginOptions,
+            #termsOfUse {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                font-size: 0.8em;
+                margin-bottom: 18px;
+
+                div {
+                    display: flex;
+
+                    input[type=checkbox] {
+                        width: auto;
+                    }
+
+                    label {
+                        margin-left: 5px;
+                    }
+                }
+
+                label,
+                a {
+                    color: #808080;
+                }
+
+                a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            p {
+                color: #808080;
+            }
+
+            a {
+                color: #FFF;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+                border-radius: 6px;
+
+                border: none;
+                background-color: #0367A6;
+                color: #FFF;
+                font-weight: 600;
+
+                &:hover {
+                    background-color: #01588D;
+                }
+            }
+        }
+    }
+}
+
+#registration-page {
+    main {
+        width: 600px;
+    }
+}

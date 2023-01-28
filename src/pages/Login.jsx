@@ -1,4 +1,4 @@
-import '../styles/login.scss'
+import '../styles/loginAndRegistration.scss'
 
 // Importação de ícones e imagens
 import { FaEye } from "react-icons/fa"
@@ -7,7 +7,7 @@ import { FaEyeSlash } from "react-icons/fa"
 // Importação de dependências
 import { useState } from 'react'
 import { useFormik } from 'formik'
-import * as yup from 'yup';
+import * as yup from 'yup'
 
 export function Login() {
     document.title = 'Login'
@@ -17,12 +17,12 @@ export function Login() {
         initialValues: {
             email: '',
             password: '',
-            remember_me: false
+            rememberMe: false
         },
         validationSchema: yup.object().shape({
             email: yup.string().email('Email inválido').required('Este campo é obrigatório'),
             password: yup.string().min(4, 'Senha muito curta').required('Este campo é obrigatório'),
-            remember_me: yup.boolean()
+            rememberMe: yup.bool()
         }),
         onSubmit: (values) => {
             console.log(values)
@@ -33,77 +33,69 @@ export function Login() {
     const [showPassword, setShowPassword] = useState(false)
 
     return (
-        <div id="page-login">
-            <div id="main">
-
-                <div id="title">
-                    <h2>Entrar</h2>
-                </div>
-                
+        <div id="login-page">
+            <main>
+                <header>
+                    <h1>Entrar</h1>
+                </header>
                 <form onSubmit={formik.handleSubmit} noValidate>
-                    <div>
+                    <div className="inputField">
+                        <label htmlFor="email"> Email </label>
                         <input
                             type="email"
                             name="email"
-                            placeholder='Email *'
+                            placeholder="usuario@email.com"
                             value={formik.values.email}
-                            formik={formik}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
+                            formik={formik}
                         />
                         {formik.errors.email && formik.touched.email && (
-                            <span className='error-message'>{formik.errors.email}</span>
+                            <span className="errorFeedback">{formik.errors.email}</span>
                         )}
                     </div>
-
-                    <div>
-                        <div className='input-icon-wrapper'>
+                    <div className="inputField">
+                        <label htmlFor="password"> Senha </label>
+                        <div className="inputAdornmentEnd">
                             <input
                                 type={showPassword == false ? "password" : "text"}
                                 name="password"
-                                placeholder='Senha *'
+                                placeholder="••••••"
                                 value={formik.values.password}
-                                formik={formik}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
+                                formik={formik}
                             />
                             <span
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                <i>{showPassword == true ? <FaEyeSlash /> : <FaEye />}</i>
+                                {showPassword == true ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                             </span>
                         </div>
                         {formik.errors.password && formik.touched.password && (
-                            <span className='error-message'>{formik.errors.password}</span>
+                            <span className="errorFeedback">{formik.errors.password}</span>
                         )}
                     </div>
-
                     <button
-                        type='submit'
+                        type="submit"
                     >
                         Entrar
                     </button>
-
-                    <div id='bottom-login'>
+                    <div id="loginOptions">
                         <div>
                             <input
                                 type="checkbox"
-                                name='remember_me'
-                                value={formik.values.remember_me}
+                                name="rememberMe"
+                                value={true}
                                 formik={formik}
                             />
-                            <label htmlFor="remember_me">Lembre-se de mim</label>
+                            <label htmlFor="rememberMe">Lembre-se de mim</label>
                         </div>
-
-                        <p>
-                            <a href='/forgot-password'>Esqueceu a senha?</a>
-                        </p>
+                        <a href="/forgot-password">Esqueceu a senha?</a>
                     </div>
-
                     <p>Novo por aqui? <a href="/">Assine agora.</a></p>
                 </form>
-
-            </div>
+            </main>
         </div>
     )
 }

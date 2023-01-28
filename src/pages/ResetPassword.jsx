@@ -1,4 +1,4 @@
-import '../styles/login.scss'
+import '../styles/loginAndRegistration.scss'
 
 // Importação de ícones e imagens
 import { FaEye } from "react-icons/fa"
@@ -18,12 +18,12 @@ export function ResetPassword() {
     // Validação de senha e confirmaçção de senha com Formik e Yup
     const formik = useFormik({
         initialValues: {
-            new_password: '',
-            confirm_new_password: ''
+            newPassword: '',
+            confirmNewPassword: ''
         },
         validationSchema: yup.object().shape({
-            new_password: yup.string().min(4, 'Senha muito curta').required('Este campo é obrigatório'),
-            confirm_new_password: yup.string().oneOf([yup.ref('new_password'), null], 'As senhas devem corresponder')
+            newPassword: yup.string().min(4, 'Senha muito curta').required('Este campo é obrigatório'),
+            confirmNewPassword: yup.string().oneOf([yup.ref('newPassword'), null], 'As senhas devem corresponder')
         }),
         onSubmit: (values) => {
             console.log(values)
@@ -32,72 +32,69 @@ export function ResetPassword() {
     })
 
     // State para habilitar/desabilitar a visibilidade da senha
-    const [showPassword, setShowPassword] = useState(false)
     const [showNewPassword, setShowNewPassword] = useState(false)
+    const [showConfirmNewPassword, setShowConfirmNewPassword] = useState(false)
 
     return (
-        <div id="page-login">
-            <div id="main">
-
-                <div id="title">
-                    <h2>Redefinir senha</h2>
+        <div id="login-page">
+            <main>
+                <header>
+                    <h1>Redefinir senha</h1>
                     <p>Insira sua nova senha abaixo.</p>
-                </div>
-
+                </header>
                 <form onSubmit={formik.handleSubmit} noValidate>
-                    <div>
-                        <div className='input-icon-wrapper'>
+                    <div className="inputField">
+                        <label htmlFor="newPassword">Nova senha</label>
+                        <div className="inputAdornmentEnd">
                             <input
-                                formik={formik}
-                                type={showPassword == false ? "password" : "text"}
-                                value={formik.values.new_password}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                name="new_password"
-                                placeholder='Nova senha *'
-                            />
-                            <span
-                                onClick={() => setShowPassword(!showPassword)}
-                            >
-                                <i>{showPassword == true ? <FaEyeSlash /> : <FaEye />}</i>
-                            </span>
-
-                        </div>
-                        {formik.errors.new_password && formik.touched.new_password && (
-                            <span className='error-message'>{formik.errors.new_password}</span>
-                        )}
-                    </div>
-
-                    <div>
-                        <div className='input-icon-wrapper'>
-                            <input
-                                formik={formik}
                                 type={showNewPassword == false ? "password" : "text"}
-                                value={formik.values.confirm_new_password}
+                                name="newPassword"
+                                placeholder="Mínimo de 4 caracteres"
+                                value={formik.values.newPassword}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                name="confirm_new_password"
-                                placeholder='Confirmar nova senha *'
+                                formik={formik}
                             />
                             <span
                                 onClick={() => setShowNewPassword(!showNewPassword)}
                             >
-                                <i>{showNewPassword == true ? <FaEyeSlash /> : <FaEye />}</i>
+                                {showNewPassword == true ? <FaEyeSlash /> : <FaEye />}
                             </span>
+
                         </div>
-                        {formik.errors.confirm_new_password && formik.touched.confirm_new_password && (
-                            <span className='error-message'>{formik.errors.confirm_new_password}</span>
+                        {formik.errors.newPassword && formik.touched.newPassword && (
+                            <span className="errorFeedback">{formik.errors.newPassword}</span>
                         )}
                     </div>
-                    
+                    <div className="inputField">
+                        <label htmlFor="confirmNewPassword">Confirmar nova senha</label>
+                        <div className="inputAdornmentEnd">
+                            <input
+                                type={showConfirmNewPassword == false ? "password" : "text"}
+                                name="confirmNewPassword"
+                                placeholder="As senhas devem corresponder"
+                                value={formik.values.confirm_new_password}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                formik={formik}
+                            />
+                            <span
+                                onClick={() => setShowConfirmNewPassword(!showConfirmNewPassword)}
+                            >
+                                {showConfirmNewPassword == true ? <FaEyeSlash /> : <FaEye />}
+                            </span>
+                        </div>
+                        {formik.errors.confirmNewPassword && formik.touched.confirmNewPassword && (
+                            <span className="errorFeedback">{formik.errors.confirmNewPassword}</span>
+                        )}
+                    </div>
                     <button
-                        type='submit'
+                        type="submit"
                     >
                         Mudar senha
                     </button>
                 </form>
-
-            </div>
+            </main>
         </div>
     )
 }

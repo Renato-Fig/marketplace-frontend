@@ -12,9 +12,12 @@ import ImagePlaceholder from '../assets/image-placeholder.png'
 import { useState } from 'react';
 import { useFormik } from 'formik'
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 export function Home() {
     document.title = 'Home'
+
+    const navigate = useNavigate()
 
     // Validação de email com Formik e Yup
     const formik = useFormik({
@@ -26,6 +29,8 @@ export function Home() {
         }),
         onSubmit: (values) => {
             console.log(values)
+            sessionStorage.setItem("email", values.email)
+            navigate('/registration', {replace: true})
         }
     })
 

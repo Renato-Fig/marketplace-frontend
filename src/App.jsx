@@ -4,6 +4,8 @@ import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { ForgotPassword } from './pages/ForgotPassword'
 import { ResetPassword } from './pages/ResetPassword'
+import { Registration } from './pages/Registration'
+import { TermsOfUse } from './pages/TermsOfUse'
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path='/login' element={ <Login /> } />
         <Route path='/forgot-password' element={ <ForgotPassword /> } />
         <Route path='/reset-password' element={ <ResetPassword /> } />
+        <Route path='/registration' element={ <Registration /> } />
+        <Route path='/terms-of-use' element={ <TermsOfUse /> } />
       </Routes>
     </Router>
   )
