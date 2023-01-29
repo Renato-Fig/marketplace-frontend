@@ -15,14 +15,6 @@ button {
     cursor: pointer;
 }
 
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
 // Estilização de mensagens semânticas
 .errorFeedback {
     display: block;
@@ -32,4 +24,21 @@ li {
     font-size: 0.8em;
 
     margin-top: 6px; 
+}
+
+// Estilização do darkmode e lightmode
+
+// Removendo estilos padrões
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
 }

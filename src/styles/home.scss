@@ -56,7 +56,31 @@
         form {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 5px;
+            gap: 6px;
+
+            input, 
+            button {
+                padding: 12px 18px;
+                border-radius: 6px;
+                border: 0;
+            }
+
+            input {
+                outline: 1px solid transparent;
+                border: 1px solid transparent;
+                
+                &:focus {
+                    outline: 1px solid #4BD8F9;
+                    border: 1px solid transparent;
+                }
+            }
+
+            button {
+                background-color: #0367A6;
+                font-weight: 600;
+                color: #FFF;
+                outline: 1px solid transparent;
+            }
         }
     }
 

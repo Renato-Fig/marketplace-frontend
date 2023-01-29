@@ -3,6 +3,8 @@ import '../styles/home.scss'
 // Importação de conteúdos textuais
 import FaqContent from '../assets/faq-content.json'
 
+import { Footer } from '../components/Footer/Footer'
+
 // Importação de ícones e imagens
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
@@ -66,7 +68,7 @@ export function Home() {
                         </button>
                     </form>
                     {formik.errors.email && formik.touched.email && (
-                        <span className='error-message'>{formik.errors.email}</span>
+                        <span className="errorFeedback">{formik.errors.email}</span>
                     )}
 
                 </div>
@@ -154,22 +156,7 @@ export function Home() {
 
                 </div>
             </div>
-
-            <div className="container" id="footer">
-                <footer className="wrapper">
-
-                    <ul>
-                        <li><a href="#">Pellentesque </a></li>
-                        <li><a href="#">Interdum </a></li>
-                        <li><a href="#">Curabitur</a></li>
-                        <li><a href="#">Auctor</a></li>
-                        <li><a href="#">Finibus</a></li>
-                    </ul>
-
-                    <p>&copy; 2022 MundoWeb. Todos direitos reservados. <br/> Feito por NeoCode.</p>
-
-                </footer>
-            </div>
+            <Footer />
         </div>
     )
 }
