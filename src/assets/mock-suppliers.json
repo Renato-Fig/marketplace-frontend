@@ -1,0 +1,74 @@
+[
+    {
+        "nome_fornecedor": "Empresa ABC",
+        "ramo_atividade": "Tecnologia",
+        "descricao": "Fornecedora de soluções em tecnologia de ponta",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa XYZ",
+        "ramo_atividade": "Moda",
+        "descricao": "Especialista em roupas de alta qualidade",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa 123",
+        "ramo_atividade": "Alimentos",
+        "descricao": "Fornecedor de alimentos saudáveis e orgânicos",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa 456",
+        "ramo_atividade": "Brinquedos",
+        "descricao": "Especialista em brinquedos divertidos e educativos",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa ABC",
+        "ramo_atividade": "Tecnologia",
+        "descricao": "Fornecedora de soluções em tecnologia de ponta",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa XYZ",
+        "ramo_atividade": "Moda",
+        "descricao": "Especialista em roupas de alta qualidade",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa 123",
+        "ramo_atividade": "Alimentos",
+        "descricao": "Fornecedor de alimentos saudáveis e orgânicos",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa 456",
+        "ramo_atividade": "Brinquedos",
+        "descricao": "Especialista em brinquedos divertidos e educativos",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa ABC",
+        "ramo_atividade": "Tecnologia",
+        "descricao": "Fornecedora de soluções em tecnologia de ponta",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa XYZ",
+        "ramo_atividade": "Moda",
+        "descricao": "Especialista em roupas de alta qualidade",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa 123",
+        "ramo_atividade": "Alimentos",
+        "descricao": "Fornecedor de alimentos saudáveis e orgânicos",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    },
+    {
+        "nome_fornecedor": "Empresa 456",
+        "ramo_atividade": "Brinquedos",
+        "descricao": "Especialista em brinquedos divertidos e educativos",
+        "imagem": "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+    }
+]

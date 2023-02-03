@@ -5,16 +5,23 @@
 }
 
 body {
-    background-color: #2d3133;
-    color: #fff;
-
     font: 400 1em 'Inter', sans-serif;    
 }
 
-button {
-    cursor: pointer;
+.container {
+    width: 80vw;
 }
 
+// Estilização geral de darkmode e lightmode
+.darkmode {
+    background-color: #2d3133;
+    color: #fff;
+}
+
+.lightmode {
+    background-color: #F5F5F5;
+    color: #2D3133;
+}
 // Estilização de mensagens semânticas
 .errorFeedback {
     display: block;
@@ -41,4 +48,8 @@ a {
 
 li {
     list-style: none;
+}
+
+button {
+    cursor: pointer;
 }

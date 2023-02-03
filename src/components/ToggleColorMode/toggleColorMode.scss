@@ -1,0 +1,31 @@
+#toggleColorMode {
+    position: fixed;
+    display: flex;
+    bottom: 18px;
+    right: 18px;
+    background-color: #FFF;
+    box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.20);
+    border-radius: 18px;
+    height: 38px;
+    padding: 3px;
+
+    span {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+    }
+
+    .selected {
+        background-color: #0367A6;
+        color: #FFF;
+    }
+
+    .not-selected {
+        color: #808080;
+    }
+}

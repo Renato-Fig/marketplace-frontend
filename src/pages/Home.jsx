@@ -3,8 +3,6 @@ import '../styles/home.scss'
 // Importação de conteúdos textuais
 import FaqContent from '../assets/faq-content.json'
 
-import { Footer } from '../components/Footer/Footer'
-
 // Importação de ícones e imagens
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
@@ -55,7 +53,7 @@ export function Home() {
                         <input
                             type="email"
                             name="email"
-                            placeholder='Email *'
+                            placeholder="Digite seu melhor email"
                             value={formik.values.email}
                             formik={formik}
                             onChange={formik.handleChange}
@@ -156,7 +154,6 @@ export function Home() {
 
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }

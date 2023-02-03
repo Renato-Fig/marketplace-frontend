@@ -186,7 +186,17 @@ export function ClientRegistration() {
 
             <hr />
             <div className="inputField">
-                <label htmlFor="cep">CEP</label>
+                <label htmlFor="cep">
+                    CEP
+                    <small>
+                        <a
+                            href="https://buscacepinter.correios.com.br/app/endereco/index.php"
+                            target="_blank"
+                        >
+                            (Buscar CEP)
+                        </a>
+                    </small>
+                </label>
                 <InputMask
                     type="text"
                     name="cep"
@@ -295,7 +305,7 @@ export function ClientRegistration() {
                         />
                         <label htmlFor="termsOfUseAgreement">Li e aceito os termos e condições do contrato</label>
                     </div>
-                    <a href="/terms-of-use">Visualizar contrato</a>
+                    <a href="/terms-of-use" target="_blank">Visualizar contrato</a>
                 </div>
                 {formik.errors.termsOfUseAgreement && formik.touched.termsOfUseAgreement && (
                     <span className="errorFeedback">{formik.errors.termsOfUseAgreement}</span>

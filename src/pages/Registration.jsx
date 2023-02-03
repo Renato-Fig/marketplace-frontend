@@ -16,7 +16,7 @@ export function Registration() {
     const [userType, setUserType] = useState('client')
     const navigate = useNavigate()
 
-    useEffect(() =>{
+    useEffect(() => {
         if (sessionStorage.email == '') {
             navigate('/', {replace: true})
         }

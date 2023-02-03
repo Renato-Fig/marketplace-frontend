@@ -9,18 +9,23 @@ import { SupplierProfile } from './pages/SupplierProfile'
 import { Catalog } from './pages/Catalog'
 import { TermsOfUse } from './pages/TermsOfUse'
 
+import { NavBar } from './components/NavBar/NavBar'
+import { Footer } from './components/Footer/Footer'
+import { ToggleColorMode } from './components/ToggleColorMode/ToggleColorMode'
+
 function App() {
   return (
     <Router>
+      <ToggleColorMode />
       <Routes>
-        <Route path='/' element={ <Home /> } />
-        <Route path='/login' element={ <Login /> } />
-        <Route path='/forgot-password' element={ <ForgotPassword /> } />
-        <Route path='/reset-password' element={ <ResetPassword /> } />
-        <Route path='/registration' element={ <Registration /> } />
-        <Route path='/profile' element={ <SupplierProfile /> } />
-        <Route path='/catalog' element={ <Catalog /> } />
-        <Route path='/terms-of-use' element={ <TermsOfUse /> } />
+        <Route path='/' element={<><Home /> <Footer /></>} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
+        <Route path='/registration' element={<Registration />} />
+        <Route path='/profile' element={<><NavBar /> <SupplierProfile /> <Footer /></>} />
+        <Route path='/catalog' element={<><NavBar /> <Catalog /> <Footer /></>} />
+        <Route path='/terms-of-use' element={<TermsOfUse />} />
       </Routes>
     </Router>
   )

@@ -46,6 +46,10 @@ export function SupplierRegistration() {
             termsOfUseAgreement: yup.bool().oneOf([true], 'Você deve concordar com nossos termos e condições para continuar')
         }),
         onSubmit: (values) => {
+            values.cpf = values.cpf.replace(/\D/g, '')
+            values.cnpj = values.cnpj.replace(/\D/g, '')
+            values.phone = values.phone.replace(/\D/g, '')
+            values.cep = values.cep.replace(/\D/g, '')
             console.log(values)
         }
     })
@@ -202,7 +206,17 @@ export function SupplierRegistration() {
             </div>
             <hr />
             <div className="inputField">
-                <label htmlFor="cep">CEP <small><a href="https://buscacepinter.correios.com.br/app/endereco/index.php">(Buscar CEP)</a></small></label>
+                <label htmlFor="cep">
+                    CEP 
+                    <small>
+                        <a 
+                            href="https://buscacepinter.correios.com.br/app/endereco/index.php"
+                            target="_blank"
+                        >
+                            (Buscar CEP)
+                        </a>
+                    </small>
+                </label>
                 <InputMask
                     type="text"
                     name="cep"
@@ -311,7 +325,7 @@ export function SupplierRegistration() {
                         />
                         <label htmlFor="termsOfUseAgreement">Li e aceito os termos e condições do contrato</label>
                     </div>
-                    <a href="/terms-of-use">Visualizar contrato</a>
+                    <a href="/terms-of-use" target="_blank">Visualizar contrato</a>
                 </div>
                 {formik.errors.termsOfUseAgreement && formik.touched.termsOfUseAgreement && (
                     <span className="errorFeedback">{formik.errors.termsOfUseAgreement}</span>

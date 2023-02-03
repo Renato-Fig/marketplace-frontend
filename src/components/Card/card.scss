@@ -1,0 +1,30 @@
+.card {
+    display: flex;
+    border-radius: 6px;
+
+    background-color: rgba($color: #4D4D4D, $alpha: 0.18);
+    box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.25);
+    padding: 6px;
+
+    .photo {
+        img {
+            border-radius: 4px;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .info {
+        padding: 12px;
+
+        h1 {
+            font: 400 1.2em "Inter", sans-serif;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font: 600 0.8em "Inter", sans-serif
+        }
+    }
+
+}
