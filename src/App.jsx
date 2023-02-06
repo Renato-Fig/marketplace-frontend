@@ -7,6 +7,7 @@ import { ResetPassword } from './pages/ResetPassword'
 import { Registration } from './pages/Registration'
 import { SupplierProfile } from './pages/SupplierProfile'
 import { Catalog } from './pages/Catalog'
+import { Product } from './pages/Product'
 import { TermsOfUse } from './pages/TermsOfUse'
 
 import { NavBar } from './components/NavBar/NavBar'
@@ -25,6 +26,7 @@ function App() {
         <Route path='/registration' element={<Registration />} />
         <Route path='/profile' element={<><NavBar /> <SupplierProfile /> <Footer /></>} />
         <Route path='/catalog' element={<><NavBar /> <Catalog /> <Footer /></>} />
+        <Route path='/product' element={<><NavBar /> <Product /> <Footer /></>} />
         <Route path='/terms-of-use' element={<TermsOfUse />} />
       </Routes>
     </Router>

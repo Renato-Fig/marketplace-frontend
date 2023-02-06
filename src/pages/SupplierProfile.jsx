@@ -17,15 +17,16 @@ export function SupplierProfile() {
                     />
 
                     <h1>Renato Figueiredo</h1>
-                    <h2>Atividade</h2>
+                    <h3>Atividade</h3>
                 </aside>
                 <span></span>
                 <main>
                     <section id="description">
-                        <p>Descrição do fornecedor</p>
+                        <h2>Sobre o fornecedor</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit deserunt esse ab quas, praesentium id earum laudantium aspernatur. Modi esse nihil voluptatum sunt eum ad laborum hic fugiat cupiditate itaque.</p>
                     </section>
                     <section id="list">
-                        <p>Lista do fornecedor</p>
+                        <h2>Anúncios do fornecedor</h2>
                     </section>
                 </main>
             </div>

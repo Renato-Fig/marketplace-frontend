@@ -23,19 +23,19 @@ export function Catalog() {
                 </aside>
                 <span></span>
                 <main>
-                    <div id="filterOptions">
+                    <section id="filterOptions">
                         <div id="toggleGridStyle">
                             <span
                                 onClick={() => setGridStyle('modular')}
                                 className={gridStyle == 'modular' ? 'selected' : 'not-selected'}
                             >
-                                <FaGripLines size={20} />
+                                <FaGripHorizontal size={20} />
                             </span>
                             <span
                                 onClick={() => setGridStyle('horizontal')}
                                 className={gridStyle == 'horizontal' ? 'selected' : 'not-selected'}
                             >
-                                <FaGripHorizontal size={20} />
+                                <FaGripLines size={20} />
                             </span>
                         </div>
                         <span
@@ -45,7 +45,7 @@ export function Catalog() {
                             <FaFilter />
                             Filtros
                         </span>
-                    </div>
+                    </section>
                     {
                         expandFilters == true ? 
                         <div id="filters">
@@ -53,7 +53,7 @@ export function Catalog() {
                         </div> :
                         null
                     }
-                    <div 
+                    <section 
                         id="listOfSuppliers"
                         className={gridStyle == 'modular' ? "modular" : "horizontal"}
                     >
@@ -68,10 +68,8 @@ export function Catalog() {
                                 )
                             })
                         }
-                    </div>
-                    <button
-                        id="expandItems"
-                    >
+                    </section>
+                    <button id="expandItems">
                         Mostrar mais
                     </button>
                 </main>

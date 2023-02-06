@@ -1,6 +1,7 @@
 #supplierProfile-page {
     display: flex;
     justify-content: center;
+    min-height: 100vh;
 
     .container {
         display: grid;
@@ -8,9 +9,9 @@
         grid-column-start: span 1;
         gap: 18px;
         margin: 116px 0 36px 0;
-        
+
         position: relative;
-        
+
         aside {
             display: flex;
             flex-direction: column;
@@ -22,7 +23,7 @@
             width: 280px;
             padding: 24px;
             border-radius: 6px;
-            
+
             background-color: rgba($color: #4D4D4D, $alpha: 0.18);
             box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.25);
 
@@ -37,15 +38,36 @@
                 margin: 18px 0 6px 0;
             }
 
-            h2 {
+            h3 {
                 font: 500 0.8em/1.5 "Inter", sans-serif;
                 color: #cccccc;
             }
         }
-        
+
         main {
-            background-color: red;
-            height: 1000px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+
+            h2 {
+                font: 500 1.5em "Inter", sans-serif;
+            }
+
+            #description {
+                background-color: rgba($color: #4D4D4D, $alpha: 0.18);
+                box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.25);
+                border-radius: 6px;
+
+                h2 {
+                    border-bottom: 1px solid #4D4D4D;
+                    padding: 18px 36px;
+                }
+
+                p {
+                    line-height: 1.5;
+                    padding: 18px 36px;
+                }
+            }
         }
     }
 }

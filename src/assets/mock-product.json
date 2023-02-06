@@ -1,0 +1,28 @@
+{
+    "name": "Câmera",
+    "image": [
+        "https://http2.mlstatic.com/D_NQ_NP_651736-MLB51933692756_102022-O.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_908861-MLB51933699745_102022-O.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_853344-MLB51483373809_092022-O.webp",
+        "https://http2.mlstatic.com/D_NQ_NP_958857-MLB51935139380_102022-O.webp"
+    ],
+    "description": "Integer est nulla, imperdiet maximus molestie tincidunt, suscipit nec ante. Sed hendrerit ut purus et pellentesque. Sed bibendum sapien eget tincidunt gravida. Etiam at sagittis nisl, nec hendrerit metus. Mauris ultricies rutrum nisl, sed sagittis nisi dictum ut. Nunc et aliquam nibh. Integer venenatis ante in egestas faucibus. Vivamus ut elit neque. Quisque porttitor vulputate dolor molestie lacinia.",
+    "features": [
+        {
+            "detail": "Resolução",
+            "content": "24.2 MP"
+        },
+        {
+            "detail": "Zoom Óptico",
+            "content": "10x"
+        },
+        {
+            "detail": "Tamanho do sensor",
+            "content": "APS-C"
+        },
+        {
+            "detail": "Vídeo",
+            "content": "4K a 30 fps"
+        }
+    ]
+}

@@ -1,14 +1,18 @@
 import './navBar.scss'
 
 import { FaSearch } from "react-icons/fa"
+import { FaSignOutAlt } from "react-icons/fa"
+import { FaUserEdit } from "react-icons/fa"
+import { FaDollarSign } from "react-icons/fa"
+
 import { useState, useRef, useEffect } from 'react'
 
 export function NavBar() {
-    const [openDropdown, setOpenDropdown] = useState(true)
+    const [openDropdown, setOpenDropdown] = useState(false)
     const ref = useRef(null);
 
+    /*
     const handleClick = (event) => {
-        console.log(event)
         if (ref.current && !ref.current.contains(event.target)) {
             setOpenDropdown(false);
         }
@@ -19,7 +23,7 @@ export function NavBar() {
         return () => {
             document.removeEventListener("click", handleClick);
         };
-    }, []);
+    }, []);*/
 
     return (
         <nav>
@@ -45,9 +49,9 @@ export function NavBar() {
                         openDropdown ? (
                             <div id="dropdownMenu" ref={ref}>
                                 <ul >
-                                    <li>Pagamentos</li>
-                                    <li>Pagamentos</li>
-                                    <li>Sair</li>
+                                    <li><FaUserEdit size={20} /> Editar perfil</li>
+                                    <li><FaDollarSign size={20} /> Pagamentos</li>
+                                    <li><FaSignOutAlt size={20} /> Sair</li>
                                 </ul>
                             </div>
                         ) : null
