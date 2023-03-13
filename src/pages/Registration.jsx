@@ -4,6 +4,9 @@ import '../styles/loginAndRegistration.scss'
 import { ClientRegistration } from '../components/Registration/ClientRegistration'
 import { SupplierRegistration } from '../components/Registration/SupplierRegistration'
 
+import LogoNavbarDark from '../assets/images/Logo-Navbar-Darkmode.svg'
+import LogoNavbarLight from '../assets/images/Logo-Navbar-Lightmode.svg'
+
 // Importação de dependências
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -24,6 +27,18 @@ export function Registration() {
 
     return (
         <div id="registration-page">
+            <img
+                src={LogoNavbarDark}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoDarkmode"
+            />
+            <img
+                src={LogoNavbarLight}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoLightmode"
+            />
             <main>
                 <header>
                     <h1>Cadastre-se</h1>

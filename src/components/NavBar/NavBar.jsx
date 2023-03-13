@@ -1,5 +1,8 @@
 import './navBar.scss'
 
+import LogoNavbarDark from '../../assets/images/Logo-Navbar-Darkmode.svg'
+import LogoNavbarLight from '../../assets/images/Logo-Navbar-Lightmode.svg'
+
 import { FaSearch } from "react-icons/fa"
 import { FaSignOutAlt } from "react-icons/fa"
 import { FaUserEdit } from "react-icons/fa"
@@ -28,7 +31,18 @@ export function NavBar() {
     return (
         <nav>
             <div className="container">
-                <p>Logo</p>
+                <img 
+                    src={ LogoNavbarDark } 
+                    alt="MundoWeb" 
+                    className="logoNavbar"
+                    id="logoDarkmode"
+                />
+                <img 
+                    src={ LogoNavbarLight } 
+                    alt="MundoWeb"
+                    className="logoNavbar" 
+                    id="logoLightmode"
+                />
                 <div className="inputAdornmentEnd">
                     <input
                         type="text"

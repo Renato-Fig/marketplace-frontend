@@ -1,6 +1,8 @@
 import '../styles/loginAndRegistration.scss'
 
 import { Dialog } from '../components/Dialog/Dialog'
+import LogoNavbarDark from '../assets/images/Logo-Navbar-Darkmode.svg'
+import LogoNavbarLight from '../assets/images/Logo-Navbar-Lightmode.svg'
 
 // Importação de dependências
 import { useState } from 'react'
@@ -29,6 +31,18 @@ export function ForgotPassword() {
 
     return (
         <div id="login-page">
+            <img
+                src={LogoNavbarDark}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoDarkmode"
+            />
+            <img
+                src={LogoNavbarLight}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoLightmode"
+            />
             <main>
                 <header>
                     <h1>Recuperar senha</h1>

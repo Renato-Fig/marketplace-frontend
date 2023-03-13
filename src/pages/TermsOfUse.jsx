@@ -1,10 +1,25 @@
 import '../styles/termsOfUse.scss'
 
+import LogoNavbarDark from '../assets/images/Logo-Navbar-Darkmode.svg'
+import LogoNavbarLight from '../assets/images/Logo-Navbar-Lightmode.svg'
+
 export function TermsOfUse() {
     document.title = 'Termos e Condições de Uso'
 
     return (
         <div id="tandc">
+            <img
+                src={LogoNavbarDark}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoDarkmode"
+            />
+            <img
+                src={LogoNavbarLight}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoLightmode"
+            />
             <main>
                 <h1>Termos e Condições de Uso</h1>
                 <hr />

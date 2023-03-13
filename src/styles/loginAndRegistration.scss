@@ -1,14 +1,36 @@
+.lightmode {
+    #login-page,
+    #registration-page {
+        main {
+            background-color: #FFF;
+
+            form {
+                .inputField {
+                    input {
+                        border: 1px solid #808080;
+                    }
+                }
+            }
+        }
+    }
+}
+
 #login-page,
 #registration-page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .logoNavbar {
+        margin: 42px 0;
+    }
 
     main {
         display: block;
         width: 450px;
         padding: 60px;
-        margin: 120px 0;
+        margin-bottom: 42px;
         border-radius: 6px;
 
         background-color: rgba($color: #4D4D4D, $alpha: 0.18);
@@ -36,14 +58,15 @@
         form {
             display: grid;
             gap: 18px;
-            
+
             .inputField {
                 label {
                     display: block;
                     font-weight: 600;
                     margin-bottom: 6px;
 
-                    small, a {
+                    small,
+                    a {
                         font-weight: 400;
                         color: #808080;
                     }
@@ -215,4 +238,3 @@
         }
     }
 }
-

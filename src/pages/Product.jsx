@@ -39,22 +39,6 @@ export function Product() {
                     <section id="productFeatures">
                         <h2>Características</h2>
                         <table>
-                            {/*<tr>
-                                <td>Tag</td>
-                                <td>Especificação</td>
-                            </tr>
-                            <tr>
-                                <td>Tag</td>
-                                <td>Especificação</td>
-                            </tr>
-                            <tr>
-                                <td>Tag</td>
-                                <td>Especificação</td>
-                            </tr>
-                            <tr>
-                                <td>Tag</td>
-                                <td>Especificação</td>
-                            </tr>*/}
                             {
                                 MockProduct.features.map((data) => {
                                     return (

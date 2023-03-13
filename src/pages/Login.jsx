@@ -3,37 +3,55 @@ import '../styles/loginAndRegistration.scss'
 // Importação de ícones e imagens
 import { FaEye } from "react-icons/fa"
 import { FaEyeSlash } from "react-icons/fa"
+import LogoNavbarDark from '../assets/images/Logo-Navbar-Darkmode.svg'
+import LogoNavbarLight from '../assets/images/Logo-Navbar-Lightmode.svg'
 
 // Importação de dependências
 import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 
+import { useAuthContext } from '../hooks/useAuthProvider';
+
 export function Login() {
     document.title = 'Login'
+    const [showPassword, setShowPassword] = useState(false)
+
+    const { signIn } = useAuthContext()
 
     // Validação de email e senha com Formik e Yup
     const formik = useFormik({
         initialValues: {
             email: '',
-            password: '',
-            rememberMe: false
+            senha: '',
+            //rememberMe: false
         },
         validationSchema: yup.object().shape({
             email: yup.string().email('Email inválido').required('Este campo é obrigatório'),
-            password: yup.string().min(4, 'Senha muito curta').required('Este campo é obrigatório'),
-            rememberMe: yup.bool()
+            senha: yup.string().min(4, 'Senha muito curta').required('Este campo é obrigatório'),
+            //rememberMe: yup.bool()
         }),
-        onSubmit: (values) => {
-            console.log(values)
+        onSubmit: async (values) => {
+            
+           await signIn(values)
+            
         }
     })
 
-    // State para habilitar/desabilitar a visibilidade da senha
-    const [showPassword, setShowPassword] = useState(false)
-
     return (
         <div id="login-page">
+            <img
+                src={LogoNavbarDark}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoDarkmode"
+            />
+            <img
+                src={LogoNavbarLight}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoLightmode"
+            />
             <main>
                 <header>
                     <h1>Entrar</h1>
@@ -59,9 +77,9 @@ export function Login() {
                         <div className="inputAdornmentEnd">
                             <input
                                 type={showPassword == false ? "password" : "text"}
-                                name="password"
+                                name="senha"
                                 placeholder="••••••"
-                                value={formik.values.password}
+                                value={formik.values.senha}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 formik={formik}
@@ -72,8 +90,8 @@ export function Login() {
                                 {showPassword == true ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                             </span>
                         </div>
-                        {formik.errors.password && formik.touched.password && (
-                            <span className="errorFeedback">{formik.errors.password}</span>
+                        {formik.errors.senha && formik.touched.senha && (
+                            <span className="errorFeedback">{formik.errors.senha}</span>
                         )}
                     </div>
                     <button

@@ -1,0 +1,106 @@
+.lightmode {
+    #product-registration-page {
+        .container {
+            main {
+                background-color: #FFF;
+    
+                form {
+                    .inputField {
+                        input, textarea {
+                            border: 1px solid #808080;
+                            color: #000000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#product-registration-page {
+    display: flex;
+    justify-content: center;
+
+    .container {
+        margin: 116px 0 36px 0;
+
+        header {
+            margin-bottom: 30px;
+
+            h1 {
+                font: 400 2em "Inter", sans-serif;
+            }
+        }
+
+        main {
+            width: 80vw;
+            padding: 60px;
+            border-radius: 6px;
+
+            background-color: rgba($color: #4D4D4D, $alpha: 0.18);
+            box-shadow: 0 0 12px rgba($color: #000000, $alpha: 0.25);
+
+            form {
+                display: grid;
+                gap: 18px;
+
+                .inputField {
+                    label {
+                        display: block;
+                        font-weight: 600;
+                        margin-bottom: 6px;
+    
+                        small,
+                        a {
+                            font-weight: 400;
+                            color: #808080;
+                        }
+                    }
+    
+                    input,
+                    textarea {
+                        width: 100%;
+                        padding: 12px 18px;
+                        border-radius: 6px;
+    
+                        border: 1px solid #FFF;
+                        background-color: transparent;
+                        color: #FFF;
+    
+                        &::placeholder {
+                            font: 600 1em, "Inter", sans-serif;
+                            color: #808080;
+                        }
+    
+                        &:focus {
+                            outline: 1px solid #4BD8F9;
+                            border: 1px solid transparent;
+                        }
+                    }
+    
+                    textarea {
+                        resize: vertical;
+                        height: 100px;
+                        min-height: 42px;
+                    }
+                }
+
+                button {
+                    width: fit-content;
+                    padding: 12px 24px;
+                    border-radius: 6px;
+    
+                    border: none;
+                    background-color: #0367A6;
+                    color: #FFF;
+                    font-weight: 600;
+    
+                    &:hover {
+                        background-color: #01588D;
+                    }
+                }
+            }
+
+        }
+    }
+}

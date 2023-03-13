@@ -22,6 +22,7 @@ body {
     background-color: #FCFCFC;
     color: #2D3133;
 }
+
 // Estilização de mensagens semânticas
 .errorFeedback {
     display: block;
@@ -31,6 +32,10 @@ body {
     font-size: 0.8em;
 
     margin-top: 6px; 
+}
+
+.logoNavbar {
+    height: 60px;
 }
 
 // Estilização do darkmode e lightmode

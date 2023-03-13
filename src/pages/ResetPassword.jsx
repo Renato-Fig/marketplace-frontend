@@ -4,6 +4,9 @@ import '../styles/loginAndRegistration.scss'
 import { FaEye } from "react-icons/fa"
 import { FaEyeSlash } from "react-icons/fa"
 
+import LogoNavbarDark from '../assets/images/Logo-Navbar-Darkmode.svg'
+import LogoNavbarLight from '../assets/images/Logo-Navbar-Lightmode.svg'
+
 // Importação de dependências
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -37,6 +40,18 @@ export function ResetPassword() {
 
     return (
         <div id="login-page">
+            <img
+                src={LogoNavbarDark}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoDarkmode"
+            />
+            <img
+                src={LogoNavbarLight}
+                alt="MundoWeb"
+                className="logoNavbar"
+                id="logoLightmode"
+            />
             <main>
                 <header>
                     <h1>Redefinir senha</h1>

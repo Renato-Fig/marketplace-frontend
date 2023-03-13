@@ -7,6 +7,8 @@ import FaqContent from '../assets/faq-content.json'
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import ImagePlaceholder from '../assets/image-placeholder.png'
+import LogoNavbarDark from '../assets/images/Logo-Navbar-Darkmode.svg'
+import LogoNavbarLight from '../assets/images/Logo-Navbar-Lightmode.svg'
 
 // Importação de dependências
 import { useState } from 'react';
@@ -30,7 +32,7 @@ export function Home() {
         onSubmit: (values) => {
             console.log(values)
             sessionStorage.setItem("email", values.email)
-            navigate('/registration', {replace: true})
+            navigate('/registration', { replace: true })
         }
     })
 
@@ -38,7 +40,18 @@ export function Home() {
         <div id="page-home">
 
             <div id="menu">
-                <p>Mundo Web</p>
+                <img
+                    src={LogoNavbarDark}
+                    alt="MundoWeb"
+                    className="logoNavbar"
+                    id="logoDarkmode"
+                />
+                <img
+                    src={LogoNavbarLight}
+                    alt="MundoWeb"
+                    className="logoNavbar"
+                    id="logoLightmode"
+                />
                 <a href="/login">Entrar</a>
             </div>
 
@@ -76,9 +89,9 @@ export function Home() {
                 <div className="wrapper">
 
                     <article>
-                        <img 
+                        <img
                             className="image-content"
-                            src={ ImagePlaceholder } 
+                            src={ImagePlaceholder}
                             alt=""
                         />
                         <div className="text-content">
@@ -92,18 +105,18 @@ export function Home() {
                             <h2>Lorem ipsum</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla arcu ante, luctus non auctor ut, aliquet sit amet libero. Vestibulum porta quam sed lectus.</p>
                         </div>
-                        <img 
+                        <img
                             className="image-content"
-                            src={ ImagePlaceholder } 
-                            alt="" 
+                            src={ImagePlaceholder}
+                            alt=""
                         />
                     </article>
 
                     <article>
-                        <img 
+                        <img
                             className="image-content"
-                            src={ ImagePlaceholder } 
-                            alt="" 
+                            src={ImagePlaceholder}
+                            alt=""
                         />
                         <div className="text-content">
                             <h2>Lorem ipsum</h2>
@@ -116,10 +129,10 @@ export function Home() {
                             <h2>Lorem ipsum</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla arcu ante, luctus non auctor ut, aliquet sit amet libero. Vestibulum porta quam sed lectus.</p>
                         </div>
-                        <img 
+                        <img
                             className="image-content"
-                            src={ ImagePlaceholder }
-                            alt="" 
+                            src={ImagePlaceholder}
+                            alt=""
                         />
                     </article>
 
@@ -136,7 +149,7 @@ export function Home() {
 
                             return (
                                 <div className="accordion-item">
-                                    <div 
+                                    <div
                                         className="title-content"
                                         onClick={() => setExpanded(!expanded)}
                                     >
