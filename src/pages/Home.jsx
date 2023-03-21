@@ -11,7 +11,7 @@ import LogoNavbarDark from '../assets/images/Logo-Navbar-Darkmode.svg'
 import LogoNavbarLight from '../assets/images/Logo-Navbar-Lightmode.svg'
 
 // Importação de dependências
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFormik } from 'formik'
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
@@ -36,6 +36,20 @@ export function Home() {
         }
     })
 
+    const [text, setText] = useState('');
+    const [charIndex, setCharIndex] = useState(0);
+
+    useEffect(() => {
+        const message = 'Os melhores preços você encontra aqui!';
+
+        if (charIndex < message.length) {
+        setTimeout(() => {
+            setText(text + message.charAt(charIndex));
+            setCharIndex(charIndex + 1);
+        }, 120);
+        }
+    }, [charIndex, text]);
+
     return (
         <div id="page-home">
 
@@ -58,7 +72,11 @@ export function Home() {
             <div className="container" id="banner">
                 <div className="wrapper">
 
-                    <h1>Os melhores preços você encontra aqui!</h1>
+                    <h1>
+                        {text} 
+                        <div className="cursor"></div>
+                    </h1>
+                    
                     <h3>Compre e negocie da melhor forma.</h3>
 
                     <p>Deseja participar do MundoWeb? Informe seu email e comece já!</p>

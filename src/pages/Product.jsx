@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../styles/product.scss'
 
 import MockProduct from '../assets/mock-product.json'
+import { FaRegCommentAlt } from "react-icons/fa"
 
 export function Product() {
     document.title = 'Produto'
@@ -59,7 +60,15 @@ export function Product() {
                         <h2>Anúncios relacionados</h2>
                     </section>
                 </main>
-                <aside></aside>
+                <aside>
+                    <h2 className="price">{MockProduct.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h2>
+                    <hr />
+                    <h2>Vendedor</h2>
+                    <a href="/profile"><FaRegCommentAlt />Chat</a>
+                    <hr />
+                    <a href="/profile">Informações sobre o vendedor</a>
+                    <a href="/profile">Ver todos os anúncios</a>
+                </aside>
             </div>
         </div>
     )

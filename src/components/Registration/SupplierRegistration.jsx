@@ -95,6 +95,16 @@ export function SupplierRegistration() {
                 )}
             </div>
             <div className="inputField">
+                <label htmlFor="category">Categoria</label>
+                <select name="category">
+                    <option value={1}>Selecione uma categoria</option>
+                    <option value={2}>Tecnologia</option>
+                </select>
+                {formik.errors.category && formik.touched.category && (
+                    <span className="errorFeedback">{formik.errors.category}</span>
+                )}
+            </div>
+            <div className="inputField">
                 <label htmlFor="cnpj">CNPJ <small>(Opcional)</small></label>
                 <InputMask
                     type="text"
@@ -207,9 +217,9 @@ export function SupplierRegistration() {
             <hr />
             <div className="inputField">
                 <label htmlFor="cep">
-                    CEP 
+                    CEP
                     <small>
-                        <a 
+                        <a
                             href="https://buscacepinter.correios.com.br/app/endereco/index.php"
                             target="_blank"
                         >

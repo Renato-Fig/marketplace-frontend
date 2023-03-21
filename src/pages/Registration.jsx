@@ -20,7 +20,7 @@ export function Registration() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (sessionStorage.email == '') {
+        if (sessionStorage.email == "" || sessionStorage.email === undefined) {
             navigate('/', {replace: true})
         }
     })
@@ -52,7 +52,7 @@ export function Registration() {
                         onClick={() => setUserType('client')}
                         className={userType == 'client' ? 'selected' : 'not-selected'}
                     >
-                        Busco fornecedor
+                        Sou cliente
                     </span>
                     <span
                         onClick={() => setUserType('supplier')}

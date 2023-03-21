@@ -2,6 +2,7 @@ import '../styles/supplierProfile.scss'
 
 import { Footer } from '../components/Footer/Footer'
 import { NavBar } from '../components/NavBar/NavBar'
+import { Card } from '../components/Card/Card'
 
 export function SupplierProfile() {
     document.title = 'Perfil'
@@ -27,6 +28,7 @@ export function SupplierProfile() {
                     </section>
                     <section id="list">
                         <h2>Anúncios do fornecedor</h2>
+                        <Card />
                     </section>
                 </main>
             </div>
