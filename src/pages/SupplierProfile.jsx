@@ -1,8 +1,8 @@
 import '../styles/supplierProfile.scss'
 
-import { Footer } from '../components/Footer/Footer'
-import { NavBar } from '../components/NavBar/NavBar'
-import { Card } from '../components/Card/Card'
+import { FaPlus } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaPen } from "react-icons/fa";
 
 export function SupplierProfile() {
     document.title = 'Perfil'
@@ -19,6 +19,7 @@ export function SupplierProfile() {
 
                     <h1>Renato Figueiredo</h1>
                     <h3>Atividade</h3>
+                    <span></span>
                 </aside>
                 <span></span>
                 <main>
@@ -27,8 +28,24 @@ export function SupplierProfile() {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit deserunt esse ab quas, praesentium id earum laudantium aspernatur. Modi esse nihil voluptatum sunt eum ad laborum hic fugiat cupiditate itaque.</p>
                     </section>
                     <section id="list">
-                        <h2>Anúncios do fornecedor</h2>
-                        <Card />
+                        <div id="listHeader">
+                            <h2>Anúncios do fornecedor</h2>
+                            <a href="/product-registration"><FaPlus size={12}/> Novo anúncio</a>
+                        </div>
+                        
+                        <div className="cardSupplierView">
+                            <div className="photo">
+                                <img src="https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png" alt="" />
+                            </div>
+                            <div className="info">
+                                <h1>Nome</h1>
+                                <h2>R$ 1.000</h2>
+                                <div className="actions">
+                                    <button><FaPen size={12}/> Editar</button>
+                                    <button><FaRegTrashAlt size={12}/> Excluir</button>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </main>
             </div>

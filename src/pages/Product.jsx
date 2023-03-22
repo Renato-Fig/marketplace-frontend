@@ -64,7 +64,7 @@ export function Product() {
                     <h2 className="price">{MockProduct.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h2>
                     <hr />
                     <h2>Vendedor</h2>
-                    <a href="/profile"><FaRegCommentAlt />Chat</a>
+                    <a href="/profile" id="chatBtn"><FaRegCommentAlt />Chat</a>
                     <hr />
                     <a href="/profile">Informações sobre o vendedor</a>
                     <a href="/profile">Ver todos os anúncios</a>

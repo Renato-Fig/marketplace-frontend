@@ -118,6 +118,22 @@
             hr {
                 width: 100%;
                 border-bottom: 1px solid #808080;
+                margin: 24px 0;
+            }
+
+            #chatBtn {
+                background-color: #0367A6;
+                color: #FFF;
+                display: flex;
+                align-items: center;
+                padding: 12px 36px;
+                gap: 18px;
+                font-size: 1.4em;
+                border-radius: 40px;
+            }
+
+            a {
+                color: #FFF;
             }
         }
     }

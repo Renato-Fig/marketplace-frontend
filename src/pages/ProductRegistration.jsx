@@ -126,11 +126,13 @@ export function ProductRegistration() {
                                                 type="text"
                                                 name="detail"
                                                 placeholder="Detail"
-                                            />
+                                                value={feature.detail}
+                                                />
                                             <input
                                                 type="text"
                                                 name="content"
                                                 placeholder="Content"
+                                                value={feature.content}
                                             />
                                             <span onClick={removeFeature(index)}>Remover</span>
                                         </div>
@@ -138,7 +140,7 @@ export function ProductRegistration() {
                                 }
                                 )
                             }
-                            <span onClick={() => addFeature()}>Adicionar características</span>
+                            <span onClick={() => addFeature}>Adicionar características</span>
                         </div>
                         <div className="inputField">
                             <label htmlFor="description">Descrição</label>

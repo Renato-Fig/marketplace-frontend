@@ -66,6 +66,7 @@
                         position: absolute;
                         width: 100%;
                         height: 120px;
+                        cursor: pointer;
                     }
 
                     #dropzone {
@@ -77,6 +78,7 @@
                         align-items: center;
                         flex-direction: column;
                         gap: 12px;
+                        
 
                         p {
                             color: #808080;
@@ -97,6 +99,7 @@
                         border: 1px solid #808080;
                         border-radius: 6px;
                         margin: 12px 0;
+                        padding: 6px;
 
                         .wrapperImageInfo {
                             gap: 20px;
@@ -145,6 +148,12 @@
                         resize: vertical;
                         height: 100px;
                         min-height: 42px;
+                    }
+
+                    select {
+                        option {
+                            color: #4d4d4d;
+                        }
                     }
                 }
 
