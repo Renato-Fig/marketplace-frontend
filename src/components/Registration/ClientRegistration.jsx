@@ -5,7 +5,7 @@ import { FaEye } from "react-icons/fa"
 import { FaEyeSlash } from "react-icons/fa"
 
 // Importação de dependências
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import InputMask from 'react-input-mask'
@@ -14,88 +14,94 @@ export function ClientRegistration() {
 
     const formik = useFormik({
         initialValues: {
-            name: '',
-            cpf: '',
-            birthDate: '',
-            phone: '',
-            password: '',
-            confirmPassword: '',
-            cep: '',
-            city: '',
-            uf: '',
-            address: '',
-            addressNumber: '',
-            addressComplement: '',
+            Nome: '',
+            Cpf: '',
+            DataNascimento: '',
+            Telefone: '',
+            Senha: '',
+            SenhaConfirmar: '',
+            Cep: '',
+            Cidade: '',
+            Uf: '',
+            Endereco: '',
+            Numero: '',
+            Complemento: '',
+            Email: sessionStorage.email,
             termsOfUseAgreement: false
         },
         validationSchema: yup.object().shape({
-            name: yup.string().required('Campo obrigatório'),
-            cpf: yup.string().min(14, 'CPF inválido').required('Campo obrigatório'),
-            birthDate: yup.date().min('1900-01-01', 'Ano inválido').max(new Date(), 'Data futura inválida').required('Campo obrigatório'),
-            phone: yup.string().min(14, 'Telefone inválido').required('Campo obrigatório'),
-            password: yup.string().min(4, 'Senha muito curta').required('Campo obrigatório'),
-            confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'As senhas devem corresponder').required('Campo obrigatório'),
-            cep: yup.string().min(9, 'CEP inválido').required('Campo obrigatório'),
-            address: yup.string().required('Campo obrigatório'),
-            city: yup.string().required('Campo obrigatório'),
-            uf: yup.string().required('Campo obrigatório'),
-            addressNumber: yup.string().required('Campo obrigatório'),
-            addressComplement: yup.string(),
+            Nome: yup.string().required('Campo obrigatório'),
+            Cpf: yup.string().min(14, 'CPF inválido').required('Campo obrigatório'),
+            DataNascimento: yup.date().min('1900-01-01', 'Ano inválido').max(new Date(), 'Data futura inválida').required('Campo obrigatório'),
+            Telefone: yup.string().min(14, 'Telefone inválido').required('Campo obrigatório'),
+            Senha: yup.string().min(4, 'Senha muito curta').required('Campo obrigatório'),
+            SenhaConfirmar: yup.string().oneOf([yup.ref('Senha'), null], 'As senhas devem corresponder').required('Campo obrigatório'),
+            Cep: yup.string().min(9, 'CEP inválido').required('Campo obrigatório'),
+            Endereco: yup.string().required('Campo obrigatório'),
+            Cidade: yup.string().required('Campo obrigatório'),
+            Uf: yup.string().required('Campo obrigatório'),
+            Numero: yup.string().required('Campo obrigatório'),
+            Complemento: yup.string(),
             termsOfUseAgreement: yup.bool().oneOf([true], 'Você deve concordar com nossos termos e condições para continuar')
         }),
         onSubmit: (values) => {
-            values.cpf = values.cpf.replace(/\D/g, '')
-            values.phone = values.phone.replace(/\D/g, '')
-            values.cep = values.cep.replace(/\D/g, '')
+            values.Cpf = values.Cpf.replace(/\D/g, '')
+            values.Telefone = values.Telefone.replace(/\D/g, '')
+            values.Cep = values.Cep.replace(/\D/g, '')
             console.log(values)
         }
     })
 
     const onBlurCep = (e) => {
-        const cep = e.target.value.replace(/\D/g, '')
+        const Cep = e.target.value.replace(/\D/g, '')
 
-        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        fetch(`https://viacep.com.br/ws/${Cep}/json/`)
             .then((res) => res.json())
             .then((data) => {
                 if (!("erro" in data)) {
-                    formik.setFieldValue('address', data.logradouro);
-                    formik.setFieldValue('city', data.localidade);
-                    formik.setFieldValue('uf', data.uf);
+                    formik.setFieldValue('Endereco', data.logradouro);
+                    formik.setFieldValue('Cidade', data.localidade);
+                    formik.setFieldValue('Uf', data.Uf);
                 } else {
-                    formik.setFieldValue('address', '');
-                    formik.setFieldValue('city', '');
-                    formik.setFieldValue('uf', '');
+                    formik.setFieldValue('Endereco', '');
+                    formik.setFieldValue('Cidade', '');
+                    formik.setFieldValue('Uf', '');
                 }
             })
     }
 
     const [showPassword, setShowPassword] = useState(false)
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-
+    const [showSenhaConfirmar, setShowSenhaConfirmar] = useState(false)
+    const [isFulled, setIsFulled] = useState(false)
+    useEffect(()=>{
+        
+        if (formik.values != formik.initialValues)
+        setIsFulled(true)
+    },[{...formik.values}])
 
     return (
         <form onSubmit={formik.handleSubmit} noValidate>
             <hr />
             <div className="inputField">
-                <label htmlFor="name">Nome completo</label>
+                <label htmlFor="Nome">Nome completo</label>
                 <input
                     type="text"
-                    name="name"
+                    name="Nome"
                     placeholder=""
                     value={formik.values.name}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     formik={formik}
                 />
-                {formik.errors.name && formik.touched.name && (
-                    <span className="errorFeedback">{formik.errors.name}</span>
+                {formik.errors.Nome && formik.touched.Nome && (
+                    <span className="errorFeedback">{formik.errors.Nome}</span>
                 )}
             </div>
             <div className="inputField">
-                <label htmlFor="cpf">CPF</label>
+                <label htmlFor="Cpf">CPF</label>
                 <InputMask
                     type="text"
-                    name="cpf"
+                    name="Cpf"
                     mask="999.999.999-99"
                     maskChar=""
                     placeholder="000.000.000-00"
@@ -104,49 +110,49 @@ export function ClientRegistration() {
                     onBlur={formik.handleBlur}
                     formik={formik}
                 />
-                {formik.errors.cpf && formik.touched.cpf && (
-                    <span className="errorFeedback">{formik.errors.cpf}</span>
+                {formik.errors.Cpf && formik.touched.Cpf && (
+                    <span className="errorFeedback">{formik.errors.Cpf}</span>
                 )}
             </div>
             <div className="inputField">
-                <label htmlFor="birthDate">Data de nascimento</label>
+                <label htmlFor="DataNascimento">Data de nascimento</label>
                 <input
                     type="date"
-                    name="birthDate"
-                    value={formik.values.birthDate}
+                    name="DataNascimento"
+                    value={formik.values.DataNascimento}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     formik={formik}
                 />
-                {formik.errors.birthDate && formik.touched.birthDate && (
-                    <span className="errorFeedback">{formik.errors.birthDate}</span>
+                {formik.errors.DataNascimento && formik.touched.DataNascimento && (
+                    <span className="errorFeedback">{formik.errors.DataNascimento}</span>
                 )}
             </div>
             <div className="inputField">
-                <label htmlFor="phone">Telefone</label>
+                <label htmlFor="Telefone">Telefone</label>
                 <InputMask
                     type="text"
-                    name="phone"
+                    name="Telefone"
                     mask="(99) 99999-9999"
                     maskChar=""
                     placeholder="(00) 00000-0000"
-                    value={formik.values.phone}
+                    value={formik.values.Telefone}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     formik={formik}
                 />
-                {formik.errors.phone && formik.touched.phone && (
-                    <span className="errorFeedback">{formik.errors.phone}</span>
+                {formik.errors.Telefone && formik.touched.Telefone && (
+                    <span className="errorFeedback">{formik.errors.Telefone}</span>
                 )}
             </div>
             <div className="inputField">
-                <label htmlFor="password">Senha</label>
+                <label htmlFor="Senha">Senha</label>
                 <div className="inputAdornmentEnd">
                     <input
                         type={showPassword == false ? "password" : "text"}
-                        name="password"
+                        name="Senha"
                         placeholder="Mínimo de 4 caracteres"
-                        value={formik.values.password}
+                        value={formik.values.Senha}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         formik={formik}
@@ -157,36 +163,36 @@ export function ClientRegistration() {
                         {showPassword == true ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                     </span>
                 </div>
-                {formik.errors.password && formik.touched.password && (
-                    <span className="errorFeedback">{formik.errors.password}</span>
+                {formik.errors.Senha && formik.touched.Senha && (
+                    <span className="errorFeedback">{formik.errors.Senha}</span>
                 )}
             </div>
             <div className="inputField">
-                <label htmlFor="confirmPassword">Confirmação da senha</label>
+                <label htmlFor="SenhaConfirmar">Confirmação da senha</label>
                 <div className="inputAdornmentEnd">
                     <input
-                        type={showPassword == false ? "password" : "text"}
-                        name="confirmPassword"
+                        type={showSenhaConfirmar == false ? "password" : "text"}
+                        name="SenhaConfirmar"
                         placeholder="Repita a senha"
-                        value={formik.values.confirmPassword}
+                        value={formik.values.SenhaConfirmar}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         formik={formik}
                     />
                     <span
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        onClick={() => setShowSenhaConfirmar(!showSenhaConfirmar)}
                     >
-                        {showConfirmPassword == true ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+                        {showSenhaConfirmar == true ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                     </span>
                 </div>
-                {formik.errors.confirmPassword && formik.touched.confirmPassword && (
-                    <span className="errorFeedback">{formik.errors.confirmPassword}</span>
+                {formik.errors.SenhaConfirmar && formik.touched.SenhaConfirmar && (
+                    <span className="errorFeedback">{formik.errors.SenhaConfirmar}</span>
                 )}
             </div>
 
             <hr />
             <div className="inputField">
-                <label htmlFor="cep">
+                <label htmlFor="Cep">
                     CEP
                     <small>
                         <a
@@ -199,95 +205,95 @@ export function ClientRegistration() {
                 </label>
                 <InputMask
                     type="text"
-                    name="cep"
+                    name="Cep"
                     mask="99999-999"
                     maskChar=""
                     placeholder="00000-000"
-                    value={formik.values.cep}
+                    value={formik.values.Cep}
                     onChange={formik.handleChange}
-                    onBlur={formik.errors.cep ? formik.handleBlur : onBlurCep}
+                    onBlur={formik.errors.Cep ? formik.handleBlur : onBlurCep}
                     formik={formik}
                 />
-                {formik.errors.cep && formik.touched.cep && (
-                    <span className="errorFeedback">{formik.errors.cep}</span>
+                {formik.errors.Cep && formik.touched.Cep && (
+                    <span className="errorFeedback">{formik.errors.Cep}</span>
                 )}
             </div>
             <div className="col2">
                 <div className="inputField">
-                    <label htmlFor="city">Cidade</label>
+                    <label htmlFor="Cidade">Cidade</label>
                     <input
                         type="text"
-                        name="city"
+                        name="Cidade"
                         placeholder=""
-                        value={formik.values.city}
+                        value={formik.values.Cidade}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         formik={formik}
                     />
-                    {formik.errors.city && formik.touched.city && (
-                        <span className="errorFeedback">{formik.errors.city}</span>
+                    {formik.errors.Cidade && formik.touched.Cidade && (
+                        <span className="errorFeedback">{formik.errors.Cidade}</span>
                     )}
                 </div>
                 <div className="inputField">
-                    <label htmlFor="uf">UF</label>
+                    <label htmlFor="Uf">Uf</label>
                     <input
                         type="text"
-                        name="uf"
+                        name="Uf"
                         placeholder=""
-                        value={formik.values.uf}
+                        value={formik.values.Uf}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         formik={formik}
                     />
-                    {formik.errors.uf && formik.touched.uf && (
-                        <span className="errorFeedback">{formik.errors.uf}</span>
+                    {formik.errors.Uf && formik.touched.Uf && (
+                        <span className="errorFeedback">{formik.errors.Uf}</span>
                     )}
                 </div>
             </div>
             <div className="inputField">
-                <label htmlFor="address">Endereço</label>
+                <label htmlFor="Endereco">Endereço</label>
                 <input
                     type="text"
-                    name="address"
+                    name="Endereco"
                     placeholder=""
-                    value={formik.values.address}
+                    value={formik.values.Endereco}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     formik={formik}
                 />
-                {formik.errors.address && formik.touched.address && (
-                    <span className="errorFeedback">{formik.errors.address}</span>
+                {formik.errors.Endereco && formik.touched.Endereco && (
+                    <span className="errorFeedback">{formik.errors.Endereco}</span>
                 )}
             </div>
             <div className="col2 oneThird">
                 <div className="inputField">
-                    <label htmlFor="addressNumber">Número</label>
+                    <label htmlFor="Numero">Número</label>
                     <input
                         type="text"
-                        name="addressNumber"
+                        name="Numero"
                         placeholder=""
-                        value={formik.values.addressNumber}
+                        value={formik.values.Numero}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         formik={formik}
                     />
-                    {formik.errors.addressNumber && formik.touched.addressNumber && (
-                        <span className="errorFeedback">{formik.errors.addressNumber}</span>
+                    {formik.errors.Numero && formik.touched.Numero && (
+                        <span className="errorFeedback">{formik.errors.Numero}</span>
                     )}
                 </div>
                 <div className="inputField">
-                    <label htmlFor="addressComplement">Complemento <small>(Opcional)</small></label>
+                    <label htmlFor="Complemento">Complemento <small>(Opcional)</small></label>
                     <input
                         type="text"
-                        name="addressComplement"
+                        name="Complemento"
                         placeholder=""
-                        value={formik.values.addressComplement}
+                        value={formik.values.Complemento}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         formik={formik}
                     />
-                    {formik.errors.addressComplement && formik.touched.addressComplement && (
-                        <span className="errorFeedback">{formik.errors.addressComplement}</span>
+                    {formik.errors.Complemento && formik.touched.Complemento && (
+                        <span className="errorFeedback">{formik.errors.Complemento}</span>
                     )}
                 </div>
             </div>
@@ -313,6 +319,8 @@ export function ClientRegistration() {
             </div>
             <button
                 type="submit"
+                // disabled = {!isFulled}
+                // className={isFulled ? '' : 'disabled'}
             >
                 Finalizar
             </button>

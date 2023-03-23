@@ -12,6 +12,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 
 import { useAuthContext } from '../hooks/useAuthProvider';
+import { signInCliente } from '../services/auth-service/usuario/authService'
 
 export function Login() {
     document.title = 'Login'
@@ -32,8 +33,7 @@ export function Login() {
             //rememberMe: yup.bool()
         }),
         onSubmit: async (values) => {
-            
-           await signIn(values)
+            signInCliente(values)
             
         }
     })
@@ -111,7 +111,7 @@ export function Login() {
                         </div>
                         <a href="/forgot-password">Esqueceu a senha?</a>
                     </div>
-                    <p>Novo por aqui? <a href="/">Assine agora.</a></p>
+                    <p>Novo por aqui? <a href="/registration">Assine agora.</a></p>
                 </form>
             </main>
         </div>

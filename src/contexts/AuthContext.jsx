@@ -3,24 +3,11 @@ import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
-interface SignInProps {
-    email: string;
-    senha: string;
-}
 
-interface AuthContextData {
-    user: string | null;
-    signIn: ({ email, senha }: SignInProps) => Promise<any>;
-    logout: () => void;
-}
 
-interface AuthProviderProps {
-    children: ReactNode;
-}
+export const AuthContext = createContext({});
 
-export const AuthContext = createContext({} as AuthContextData);
-
-export function AuthProvider({ children }: AuthProviderProps) {
+export function AuthProvider() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
 
@@ -33,7 +20,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         }
     }, []);
 
-    async function signIn({ email, senha }: SignInProps) {
+    async function signIn() {
         try {
             const response = await api.post('administrador/usuario-auth/login', {
                 email,

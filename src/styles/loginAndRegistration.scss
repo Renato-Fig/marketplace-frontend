@@ -192,6 +192,11 @@
                 &:hover {
                     background-color: #01588D;
                 }
+                &.disabled {
+                    background-color: #808080;
+                    cursor: inherit;
+
+                }
             }
 
             hr {

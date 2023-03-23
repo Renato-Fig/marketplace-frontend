@@ -4,11 +4,11 @@ import { parseCookies } from "nookies";
 const { 'mundoweb-auth-token': token } = parseCookies();
 
 const api = axios.create({
-    baseURL: "https://judorest.azurewebsites.net/swagger/v1/swagger.json",
+    baseURL:  import.meta.env.VITE_API_BASE_URL,
 })
 
 if (token) {
-  api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  api.defaults.headers.authorization = `Bearer ${token}`;
 }
 
 export default api
