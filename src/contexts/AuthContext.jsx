@@ -20,29 +20,19 @@ export function AuthProvider() {
         }
     }, []);
 
-    async function signIn() {
-        try {
-            const response = await api.post('administrador/usuario-auth/login', {
-                email,
-                senha,
-            });
 
-            const { token, id } = response.data;
+    async function signIn(responseToken) {
+            const { token, id } = responseToken;
+            console.log(responseToken)
 
             setCookie(undefined, 'mundoweb-auth-token', token, {
                 maxAge: 60 * 60 * 2, // 2 hour
             });
 
-            setUser(response.data);
+            setUser(responseToken);
 
             api.defaults.headers.Authorization = `Bearer ${token}`;
 
-            return response;
-        } catch (err) {
-            console.log(err);
-        }
-
-        return false;
     };
 
     async function logout() {

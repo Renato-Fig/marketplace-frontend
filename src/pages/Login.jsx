@@ -33,7 +33,13 @@ export function Login() {
             //rememberMe: yup.bool()
         }),
         onSubmit: async (values) => {
-            signInCliente(values)
+            try {
+                const response = await signInCliente(values)
+                setUser
+            } catch (error) {
+                
+            }
+
             
         }
     })
