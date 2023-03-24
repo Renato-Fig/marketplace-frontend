@@ -23,6 +23,21 @@
     display: flex;
     justify-content: center;
 
+    .actionBtn {
+        background-color: transparent;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: fit-content;
+        border-radius: 6px;
+        font-weight: 600;
+        border: 1px solid #FFF;
+        color: #FFF;
+        cursor: pointer;
+    }
+
+
     .container {
         margin: 116px 0 36px 0;
 
@@ -101,11 +116,19 @@
                         margin: 12px 0;
                         padding: 6px;
 
+                        
                         .wrapperImageInfo {
                             gap: 20px;
                             display: flex;
                             flex-direction: row;
                             align-items: center;
+
+                            h3 {
+                                font-size: 1em;
+                            }
+
+                            
+
                         }
 
                         .previewImageContainer {
@@ -161,6 +184,7 @@
                     display: flex;
                     align-items: center;
                     gap: 12px;
+                    margin-bottom: 12px;
                 }
 
                 button {

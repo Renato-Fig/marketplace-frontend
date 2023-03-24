@@ -95,9 +95,9 @@ export function SupplierRegistration() {
                 )}
             </div>
             <div className="inputField">
-                <label htmlFor="category">Categoria</label>
+                <label htmlFor="category">Ramo de Atividade</label>
                 <select name="category">
-                    <option value={1}>Selecione uma categoria</option>
+                    <option value={1}>Selecione </option>
                     <option value={2}>Tecnologia</option>
                 </select>
                 {formik.errors.category && formik.touched.category && (

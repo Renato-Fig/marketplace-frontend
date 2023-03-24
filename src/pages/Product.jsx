@@ -3,6 +3,7 @@ import '../styles/product.scss'
 
 import MockProduct from '../assets/mock-product.json'
 import { FaRegCommentAlt } from "react-icons/fa"
+import { FaLayerGroup } from "react-icons/fa";
 
 export function Product() {
     document.title = 'Produto'
@@ -61,13 +62,13 @@ export function Product() {
                     </section>
                 </main>
                 <aside>
-                    <h2 className="price">{MockProduct.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h2>
+                    <h1 className="price">{MockProduct.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</h1>
                     <hr />
                     <h2>Vendedor</h2>
                     <a href="/profile" id="chatBtn"><FaRegCommentAlt />Chat</a>
                     <hr />
                     <a href="/profile">Informações sobre o vendedor</a>
-                    <a href="/profile">Ver todos os anúncios</a>
+                    <a href="/profile"><FaLayerGroup/>Ver todos os anúncios</a>
                 </aside>
             </div>
         </div>

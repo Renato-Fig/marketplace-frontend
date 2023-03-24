@@ -41,6 +41,14 @@
             h3 {
                 font: 500 0.8em/1.5 "Inter", sans-serif;
                 color: #cccccc;
+                margin-bottom: 12px;
+            }
+            
+            h4 {
+                font: 400 1em/1.5 "Inter", sans-serif;
+                display: flex;
+                align-items: center;
+                gap: 12px;
             }
         }
 
@@ -117,31 +125,18 @@
                     padding: 12px;
 
                     h1 {
-                        font: 400 1.2em "Inter", sans-serif;
+                        font: 400 1.5em "Inter", sans-serif;
                         margin-bottom: 6px;
                     }
 
                     h2 {
-                        font: 600 1em "Inter", sans-serif
+                        font: 400 1em "Inter", sans-serif
                     }
 
                     .actions {
                         display: flex;
                         gap: 6px;
                         margin-top: 12px;
-
-                        button {
-                            background-color: transparent;
-                            padding: 8px 16px;
-                            display: flex;
-                            align-items: center;
-                            gap: 6px;
-                            width: fit-content;
-                            border-radius: 6px;
-                            font-weight: 600;
-                            border: 1px solid #FFF;
-                            color: #FFF;
-                        }
                     }
 
                 }

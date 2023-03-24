@@ -2,8 +2,9 @@ import '../styles/productRegistration.scss'
 
 import { useState } from 'react'
 import { useFormik } from 'formik'
-import { v4 as uuidv4 } from 'uuid'
 import { FaCloudUploadAlt } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import * as yup from 'yup'
 
 export function ProductRegistration() {
@@ -47,7 +48,6 @@ export function ProductRegistration() {
             category: '',
             features: [
                 {
-                    id: uuidv4(),
                     detail: '',
                     content: '',
                 }
@@ -59,7 +59,6 @@ export function ProductRegistration() {
             price: yup.number().required('Este campo obrigatório'),
             category: yup.number(),
             features: yup.array().of(yup.object().shape({
-                id: yup.string(),
                 detail: yup.string(),
                 content: yup.string(),
             })),
@@ -118,29 +117,40 @@ export function ProductRegistration() {
                         </div>
                         <div className="inputField">
                             <label htmlFor="feature">Características <small>(Opcional)</small></label>
-                            {
-                                features.map((feature, index) => {
-                                    return (
-                                        <div className="feature" key={index}>
+                            <div className="feature">
                                             <input
                                                 type="text"
                                                 name="detail"
                                                 placeholder="Detail"
-                                                value={feature.detail}
-                                                />
+                                            />
                                             <input
                                                 type="text"
                                                 name="content"
                                                 placeholder="Content"
-                                                value={feature.content}
                                             />
-                                            <span onClick={removeFeature(index)}>Remover</span>
+                                            <span className="actionBtn"><FaRegTrashAlt size={12} />Remover</span>
+                                        </div>
+                            {
+                                features.map((feature, index) => {
+                                    return (
+                                        <div className="feature">
+                                            <input
+                                                type="text"
+                                                name="detail"
+                                                placeholder="Detail"
+                                            />
+                                            <input
+                                                type="text"
+                                                name="content"
+                                                placeholder="Content"
+                                            />
+                                            <button onClick={removeFeature(index)} className="actionBtn">Remover</button>
                                         </div>
                                     )
                                 }
                                 )
                             }
-                            <span onClick={() => addFeature}>Adicionar características</span>
+                            <span onClick={console.log("teste")} className="actionBtn"><FaPlus size={12}/>Adicionar característica</span>
                         </div>
                         <div className="inputField">
                             <label htmlFor="description">Descrição</label>
@@ -181,7 +191,7 @@ export function ProductRegistration() {
                                                 <small>({(file.size / (1024 * 1024)).toFixed(2)} MB)</small>
                                             </div>
                                         </div>
-                                        <button onClick={() => handleDelete(index)}>Excluir</button>
+                                        <button onClick={() => handleDelete(index)} className="actionBtn"><FaRegTrashAlt size={12}/>Excluir</button>
                                     </li>
                                 ))}
                             </ul>

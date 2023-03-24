@@ -3,6 +3,8 @@ import '../styles/supplierProfile.scss'
 import { FaPlus } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaPen } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 
 export function SupplierProfile() {
     document.title = 'Perfil'
@@ -19,6 +21,8 @@ export function SupplierProfile() {
 
                     <h1>Renato Figueiredo</h1>
                     <h3>Atividade</h3>
+                    <h4><FaMapMarkerAlt />Endereço</h4>
+                    <h4><FaPhoneAlt />Contato</h4>
                     <span></span>
                 </aside>
                 <span></span>
@@ -38,11 +42,11 @@ export function SupplierProfile() {
                                 <img src="https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png" alt="" />
                             </div>
                             <div className="info">
-                                <h1>Nome</h1>
+                                <h1>Nome do produto</h1>
                                 <h2>R$ 1.000</h2>
                                 <div className="actions">
-                                    <button><FaPen size={12}/> Editar</button>
-                                    <button><FaRegTrashAlt size={12}/> Excluir</button>
+                                    <button classname="actionBtn"><FaPen size={12}/> Editar</button>
+                                    <button classname="actionBtn"><FaRegTrashAlt size={12}/> Excluir</button>
                                 </div>
                             </div>
                         </div>
