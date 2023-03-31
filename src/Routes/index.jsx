@@ -4,8 +4,10 @@ import AppRoutes from './App.Routes';
 import AuthRoutes from './Auth.Routes';
 export function Routes(){
 
+  const { user } = useAuthContext()
+
   return( 
-    <AuthRoutes/> 
+    user ? <AuthRoutes/> : <AppRoutes/> 
     
   )
 

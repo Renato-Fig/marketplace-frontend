@@ -11,16 +11,18 @@ import { AuthProvider } from '../contexts/AuthContext'
 
 function AuthRoutes() {
   return (
-      <Router>   
+    <Router>
+      <AuthProvider>
         <ToggleColorMode />
-          <Routes>
-            <Route exact path='/' element={<><Home /> <Footer /></>} />
-            <Route path='/registration' element={<Registration />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/forgot-password' element={<ForgotPassword />} />
-            <Route path='/reset-password' element={<ResetPassword />} />
-          </Routes>
-      </Router>
+        <Routes>
+          <Route exact path='/' element={<><Home /> <Footer /></>} />
+          <Route path='/registration' element={<Registration />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/reset-password' element={<ResetPassword />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
   )
 }
 

@@ -7,7 +7,7 @@ import api from '../services/api';
 
 export const AuthContext = createContext({});
 
-export function AuthProvider() {
+export function AuthProvider({children}) {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
 
@@ -17,19 +17,23 @@ export function AuthProvider() {
         if (!authToken) {
             setUser(null);
             navigate('/login', { replace: true });
+        } else{
+            console.log('tem no localStorage')
+            setUser(authToken)
+            api.defaults.headers.Authorization = `Bearer ${authToken}`;
         }
     }, []);
 
 
     async function signIn(responseToken) {
             const { token, id } = responseToken;
-            console.log(responseToken)
 
             setCookie(undefined, 'mundoweb-auth-token', token, {
                 maxAge: 60 * 60 * 2, // 2 hour
             });
 
             setUser(responseToken);
+            navigate('/')
 
             api.defaults.headers.Authorization = `Bearer ${token}`;
 

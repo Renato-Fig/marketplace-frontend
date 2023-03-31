@@ -23,7 +23,7 @@ function AppRoutes() {
           <Route path='/product-registration' element={<><NavBar /> <ProductRegistration /> <Footer /></>} />
           <Route path='/product' element={<><NavBar /> <Product /> <Footer /></>} />
           <Route path='/terms-of-use' element={<TermsOfUse />} />
-          <Route path='*' element={<><Home /> <Footer /></>} />
+          <Route path='*' element={<><NavBar /> <Catalog /> <Footer /></>} />
         </Routes>
       </Router>
   )
