@@ -1,3 +1,17 @@
+.lightmode {
+    footer {
+        background-color: #FFF;
+
+        ul {
+            li {
+                a {
+                    color: #272626;
+                }
+            }
+        }
+    }
+}
+
 footer {
     display: flex;
     justify-content: center;

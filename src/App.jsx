@@ -6,6 +6,7 @@ import { ForgotPassword } from './pages/ForgotPassword'
 import { ResetPassword } from './pages/ResetPassword'
 import { Registration } from './pages/Registration'
 import { SupplierProfile } from './pages/SupplierProfile'
+import { EditProfile } from './pages/EditProfile'
 import { Catalog } from './pages/Catalog'
 import { Product } from './pages/Product'
 import { ProductRegistration } from './pages/ProductRegistration'
@@ -27,6 +28,7 @@ function App() {
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/reset-password' element={<ResetPassword />} />
           <Route path='/registration' element={<Registration />} />
+          <Route path='/edit-profile' element={<><NavBar /> <EditProfile /> <Footer /></>} />
           <Route path='/profile' element={<><NavBar /> <SupplierProfile /> <Footer /></>} />
           <Route path='/catalog' element={<><NavBar /> <Catalog /> <Footer /></>} />
           <Route path='/product-registration' element={<><NavBar /> <ProductRegistration /> <Footer /></>} />

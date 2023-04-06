@@ -20,6 +20,11 @@
         justify-content: center;
     }
 
+    img {
+        height: 100px;
+        background-color: red;
+    }
+
     main {
         background-color: #FFF;
         box-shadow: 0 0 12px rgba(0, 0, 0, 0.18);
@@ -37,7 +42,7 @@
     p {
         font: 400 0.8em/1.5 "Inter", sans-serif;
         color: #BFBFBF;
-        margin: 6px 0 24px 0;
+        margin-top: 6px;   
     }
 
     button {
@@ -49,6 +54,7 @@
         font-weight: 600;
         cursor: pointer;
         width: 100%;
+        margin: 12px 0;
     }
 
     button:hover {
@@ -59,10 +65,12 @@
 
 <body>
     <main>
-        <h1>Pedido de alteração de senha</h1>
-        <p>Sua senha pode ser redefinida clicando no botão abaixo. Se você não solicitou uma nova senha, ignore este
-            e-mail.</p>
+        <img src="/src/assets/images/Logo-Navbar-Lightmode.svg" alt="MundoWeb">
+        <h1>Alteração de senha</h1>
+        <p>Olá <b>@Model.Nome,</b> </p>
+        <p>Nós recebemos sua solicitação de mudança de senha e estamos aqui para te ajudar! Sua senha pode ser redefinida clicando no botão abaixo.</p>
         <button>Redefinir senha</button>
+        <p> Se você não solicitou uma nova senha, ignore este e-mail.</p>
     </main>
 </body>
 

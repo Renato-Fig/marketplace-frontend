@@ -17,7 +17,7 @@ export function Login() {
     document.title = 'Login'
     const [showPassword, setShowPassword] = useState(false)
 
-    const { signIn } = useAuthContext()
+    const [userType, setUserType] = useState('client')
 
     // Validação de email e senha com Formik e Yup
     const formik = useFormik({
@@ -32,9 +32,9 @@ export function Login() {
             //rememberMe: yup.bool()
         }),
         onSubmit: async (values) => {
-            
-           await signIn(values)
-            
+
+            await signIn(values)
+
         }
     })
 
@@ -56,6 +56,20 @@ export function Login() {
                 <header>
                     <h1>Entrar</h1>
                 </header>
+                <div id="toggleUserType">
+                    <span
+                        onClick={() => setUserType('client')}
+                        className={userType == 'client' ? 'selected' : 'not-selected'}
+                    >
+                        Como cliente
+                    </span>
+                    <span
+                        onClick={() => setUserType('supplier')}
+                        className={userType == 'supplier' ? 'selected' : 'not-selected'}
+                    >
+                        Como fornecedor
+                    </span>
+                </div>
                 <form onSubmit={formik.handleSubmit} noValidate>
                     <div className="inputField">
                         <label htmlFor="email"> Email </label>

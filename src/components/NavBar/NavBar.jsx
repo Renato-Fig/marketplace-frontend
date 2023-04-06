@@ -9,11 +9,13 @@ import { FaUserEdit } from "react-icons/fa"
 import { FaDollarSign } from "react-icons/fa"
 
 import { useState, useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function NavBar() {
     const [openDropdown, setOpenDropdown] = useState(false)
     const ref = useRef(null);
 
+    const navigate = useNavigate()
     /*
     const handleClick = (event) => {
         if (ref.current && !ref.current.contains(event.target)) {
@@ -63,7 +65,7 @@ export function NavBar() {
                         openDropdown ? (
                             <div id="dropdownMenu" ref={ref}>
                                 <ul >
-                                    <li><FaUserEdit size={20} /> Editar perfil</li>
+                                    <li><FaUserEdit size={20} onClick={navigate('/edit-profile', { replace: true })}/> Editar perfil</li>
                                     <li><FaDollarSign size={20} /> Pagamentos</li>
                                     <li><FaSignOutAlt size={20} /> Sair</li>
                                 </ul>

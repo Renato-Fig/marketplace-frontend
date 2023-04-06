@@ -1,13 +1,15 @@
 .lightmode {
+
     #login-page,
-    #registration-page {
+    #registration-page,
+    #edit-page {
         main {
             background-color: #FFF;
 
             form {
                 .inputField {
                     input {
-                        border: 1px solid rgba($color: #808080, $alpha: 0.5) ;
+                        border: 1px solid rgba($color: #808080, $alpha: 0.5);
                     }
                 }
             }
@@ -15,8 +17,20 @@
     }
 }
 
+#edit-page {
+    display: flex;
+    justify-content: center;
+
+    .container {
+        margin: 116px 0 36px 0;
+        display: flex;
+        justify-content: center;
+    }
+}
+
 #login-page,
-#registration-page {
+#registration-page,
+#edit-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +42,7 @@
 
     main {
         display: block;
-        width: 450px;
+        width: 500px;
         padding: 60px;
         margin-bottom: 42px;
         border-radius: 6px;
@@ -51,6 +65,45 @@
 
                 a {
                     color: #FFF;
+                }
+            }
+        }
+
+
+        #toggleUserType {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #FFF;
+            box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.20);
+            border-radius: 12px;
+
+            margin-bottom: 18px;
+
+            span {
+                cursor: pointer;
+
+                color: #808080;
+                padding: 12px 18px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .selected {
+                background-color: #0367A6;
+                color: #FFF;
+                border-radius: 11px;
+
+                &:hover {
+                    background-color: #01588D;
+                }
+            }
+
+            .not-selected {
+                &:hover {
+                    color: #0367A6;
+                    transition: 0.4s;
                 }
             }
         }
@@ -202,46 +255,31 @@
     }
 }
 
-#registration-page {
+#registration-page,
+#edit-page {
     main {
         width: 600px;
 
-        #toggleUserType {
+        .formButtons {
             display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background-color: #FFF;
-            box-shadow: 0 0 6px rgba($color: #000000, $alpha: 0.20);
-            border-radius: 12px;
-
-            margin-bottom: 18px;
-
-            span {
-                cursor: pointer;
-
-                color: #808080;
-                padding: 12px 18px;
-                width: 100%;
-                text-align: center;
+            gap: 12px;
+            button {
+                width: auto;
+                padding: 12px 32px;
             }
-
-            .selected {
-                background-color: #0367A6;
-                color: #FFF;
-                border-radius: 11px;
-
+            .cancelBtn {
+                background-color: transparent;
+                border: 2px solid #D62839;
+                color: #D62839;
+                
                 &:hover {
-                    background-color: #01588D;
-                }
-            }
-
-            .not-selected {
-                &:hover {
-                    color: #0367A6;
-                    transition: 0.4s;
+                    background-color: transparent;
+                    border: 2px solid #a12330;
+                    color: #a12330;
                 }
             }
         }
+        
+
     }
 }

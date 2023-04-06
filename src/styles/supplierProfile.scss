@@ -137,6 +137,20 @@
                         display: flex;
                         gap: 6px;
                         margin-top: 12px;
+
+                        .actionBtn {
+                            background-color: transparent;
+                            padding: 8px 16px;
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                            width: fit-content;
+                            border-radius: 6px;
+                            font-weight: 600;
+                            border: 1px solid #FFF;
+                            color: #FFF;
+                            cursor: pointer;
+                        }
                     }
 
                 }

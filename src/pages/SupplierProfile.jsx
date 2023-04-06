@@ -45,8 +45,8 @@ export function SupplierProfile() {
                                 <h1>Nome do produto</h1>
                                 <h2>R$ 1.000</h2>
                                 <div className="actions">
-                                    <button classname="actionBtn"><FaPen size={12}/> Editar</button>
-                                    <button classname="actionBtn"><FaRegTrashAlt size={12}/> Excluir</button>
+                                    <span classname="actionBtn"><FaPen size={12}/> Editar</span>
+                                    <span classname="actionBtn"><FaRegTrashAlt size={12}/> Excluir</span>
                                 </div>
                             </div>
                         </div>
